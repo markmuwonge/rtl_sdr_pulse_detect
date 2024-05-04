@@ -93,12 +93,12 @@ func process_bytes(bytes []byte) bool {
 	}
 
 	//ref IQArray: magnitudes_normalized (Universal Radio Hacker)
-	normaized_magnitudes := make([]float64, 0)
+	normalized_magnitudes := make([]float64, 0)
 	for _, m := range magnitudes {
-		normaized_magnitudes = append(normaized_magnitudes, m/math.Hypot(math.MaxInt8, math.MinInt8))
+		normalized_magnitudes = append(normalized_magnitudes, m/math.Hypot(math.MaxInt8, math.MinInt8))
 	}
 
-	average_magnitude := np.Mean(normaized_magnitudes)
+	average_magnitude := np.Mean(normalized_magnitudes)
 
 	// ref SignalFrame:update_number_selected_samples (Universal Radio Hacker)
 	previous_power_dbm := power_dbm
