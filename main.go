@@ -65,7 +65,7 @@ func main() {
 
 		file, err := os.Open(output_file_path)
 		custom_error.Fatal(err)
-		defer file.Close()
+		file.Close()
 
 		buf := make([]byte, buf_size)
 		file.ReadAt(buf, (buf_size*int64(iteration))-buf_size)
