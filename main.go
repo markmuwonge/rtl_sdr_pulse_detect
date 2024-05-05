@@ -68,7 +68,8 @@ func main() {
 		file.Close()
 
 		buf := make([]byte, buf_size)
-		file.ReadAt(buf, (buf_size*int64(iteration))-buf_size)
+		_, err = file.ReadAt(buf, (buf_size*int64(iteration))-buf_size)
+		custom_error.Fatal(err)
 		if !process_bytes(buf) {
 			command.Stop()
 			break
